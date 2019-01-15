@@ -52,6 +52,30 @@ public class MazeSquare {
                 squareArray = new String[]{top, mid, bot};
                 break;
 
+            case BACKTRACK:
+
+                this.top = "BBB";
+                this.mid = "BBB";
+                this.bot = "BBB";
+                squareArray = new String[]{top, mid, bot};
+                break;
+
+            case PATH:
+
+                this.top = "   ";
+                this.mid = "   ";
+                this.bot = "   ";
+                squareArray = new String[]{top, mid, bot};
+                break;
+
+            case CURRENT:
+
+                this.top = "---";
+                this.mid = "-0-";
+                this.bot = "---";
+                squareArray = new String[]{top, mid, bot};
+                break;
+
             default:
 
                 this.top = "...";
@@ -70,7 +94,7 @@ public class MazeSquare {
     public String[] squareArray;
 
 
-    enum squareType{OPEN, WALL, START, FINISH}
+    enum squareType{OPEN, WALL, START, FINISH, BACKTRACK, PATH, CURRENT}
 
 
     public String getTop(){
@@ -148,6 +172,30 @@ public class MazeSquare {
                 this.top = "...";
                 this.mid = ".F.";
                 this.bot = "...";
+                squareArray = new String[]{top, mid, bot};
+                break;
+
+            case BACKTRACK:
+
+                this.top = "BBB";
+                this.mid = "BBB";
+                this.bot = "BBB";
+                squareArray = new String[]{top, mid, bot};
+                break;
+
+            case PATH:
+
+                this.top = "   ";
+                this.mid = "   ";
+                this.bot = "   ";
+                squareArray = new String[]{top, mid, bot};
+                break;
+
+            case CURRENT:
+
+                this.top = "---";
+                this.mid = "-0-";
+                this.bot = "---";
                 squareArray = new String[]{top, mid, bot};
                 break;
 

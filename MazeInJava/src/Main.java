@@ -6,69 +6,73 @@ public class Main {
 
     public static void main (String[] args) throws IOException {
 
+        //hold the value of rows to be passed to mazeGenerator
         int rows;
+        //hold the value of columns to be passed to mazeGenerator
         int columns;
 
+        //Associate read in file to inputFile
         File inputFile = new File ("C:\\Users\\Finst\\IdeaProjects\\MazeInJava\\src\\MazeInput");
+        //Read in the contents of inputFile to be passed during maze generation and replace maze squares with appropriate types
         Scanner scan = new Scanner (inputFile);
 
+        //Assigns rows to the first integer read in from inputFile
         rows = scan.nextInt();
+        //Assigns columns to the second integer read in from inputFile
         columns = scan.nextInt();
 
-        System.out.println("We made it this far");
-
+        //Create maze object, passing in values assigned to rows and columns from inputFile
         Maze myMaze = new Maze(rows, columns);
-        System.out.println(rows + " " + columns);
 
-        int indexToChange = (scan.nextInt() * columns) + scan.nextInt();
+        //Reads in the next 2 integers and formats from single array to 2D array
+        int start = (scan.nextInt() * columns) + scan.nextInt();
 
-        myMaze.maze.get(indexToChange).setSquareType(MazeSquare.squareType.START);
+        //Replace start index read in from input file with maze square type "START": See MazeSquare.java
+        myMaze.maze.get(start).setSquareType(MazeSquare.squareType.START);
 
-        indexToChange = (scan.nextInt() * columns) + scan.nextInt();
-        myMaze.maze.get(indexToChange).setSquareType(MazeSquare.squareType.FINISH);
+        //Reads in the next 2 integers and formats to 2D array.
+        int finish = (scan.nextInt() * columns) + scan.nextInt();
 
-        int count = 3;
+        //Replace start index read in from input file with maze square type "FINISH": See MazeSquare.java
+        myMaze.maze.get(finish).setSquareType(MazeSquare.squareType.FINISH);
 
+        //Place holder for index to be changed to type "WALL" as the rest of inputFile is read in
+        int indexToChange;
+
+        //Reads in integers until no integers are found and end of document is reached
         while (scan.hasNextInt()){
 
-            /*for (int i = 0; i < 2; i++){
-
-                count++;
-                indexToChange = (scan.nextInt() - 1) + (columns - 1) * scan.nextInt();
-                myMaze.maze.get(indexToChange).setSquareType(MazeSquare.squareType.WALL);
-                System.out.println("We made it this far" + count);
-
-            }*/
-
+            //Reads in next integer and reformats to proper row index based on starting column size
             int x = scan.nextInt() * columns;
+            //Reads in next integer and reformats to proper column index
             int y = scan.nextInt();
+
+            //Reformats 2D index to single index array format
             indexToChange = x + y;
+            //Replace mazeSquare with type "WALL" for each index read in
             myMaze.maze.get(indexToChange).setSquareType(MazeSquare.squareType.WALL);
 
         }
 
-/*
-        myMaze.maze.get(0).setSquareType(MazeSquare.squareType.START);
-        myMaze.maze.get(3).setSquareType(MazeSquare.squareType.WALL);
-        myMaze.maze.get(8).setSquareType(MazeSquare.squareType.WALL);
-        myMaze.maze.get(13).setSquareType(MazeSquare.squareType.WALL);
-        myMaze.maze.get(18).setSquareType(MazeSquare.squareType.WALL);
-        myMaze.maze.get(23).setSquareType(MazeSquare.squareType.WALL);
-        myMaze.maze.get(24).setSquareType(MazeSquare.squareType.FINISH);
-*/
         // if index from file is (3, 8) first num (row) * (columns in maze), + second num (column) = intended index for maze list.
         // Example: Num of columns in maze is 10, num rows is 10:
-        // index from file is (3, 8). 3 * 10 = 30. 30 + 8 = 38.  The 28th element in maze is printed at index 3, 8.
+        // index from file is (3, 8). 3 * 10 = 30. 30 + 8 = 38.  The 38th element in maze is printed at index 3, 8.
 
-        myMaze.printMaze();
+        //Creates MazeSolver object, passing in the maze to be solved.
+        MazeSolver solveMaze = new MazeSolver(myMaze);
 
+        //Create empty BufferWriter for outputting maze to text file.
         BufferedWriter output = null;
 
         try {
 
+            //Associate file object to new text document that will containg the program output.
             File file = new File("MazeOutput");
+            //Connects bufferedwriter to new FileWriter passing in the file to be written to.
             output = new BufferedWriter(new FileWriter(file));
-            output.write(myMaze.printMaze());
+            //Pass in stringbuilder from MazeSolver to allow proper formatting when iterating through each step
+            output.write(solveMaze.sb.toString());
+
 
         } catch (IOException e){
 
@@ -83,7 +87,6 @@ public class Main {
             }
 
         }
-        //System.out.println(myMaze.maze.get(0).squareArray[0]);
 
     }
 
