@@ -12,11 +12,11 @@ At each step the program checks to see if the neighboring object is open, then i
 
 ## Getting Started
 
-The following two sections will assist you in downloading and running this program. 
+The following three sections will assist you in downloading and running this program. 
 
 ### Prerequisites
 
-In order to run this program you will need the Java Development Kit (JDK) and an integrated development environment (IDE). The following programs were used in the development of this program:
+In order to run this program, you will need the Java Development Kit (JDK) and an integrated development environment (IDE). The following programs were used in the development of this program:
 
 * [Oracle JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [IntelliJ](https://www.jetbrains.com/idea/)
@@ -24,10 +24,45 @@ In order to run this program you will need the Java Development Kit (JDK) and an
 You can also use one of the following IDE's:
 * [Eclipse](https://www.eclipse.org/ide/)
 * [NetBeans](https://netbeans.org/)
+* [Visual Studio](https://visualstudio.microsoft.com/)
 
-### Installing
+### Installing JDK & IDE
 
-Will update this section later
+For detailed download instructions for the JDK and IDE's, utilize the links below:
+* [Oracle JDK Download Instructions](https://docs.oracle.com/javase/7/docs/webnotes/install/windows/jdk-installation-windows.html)
+* [IntelliJ Download Instructions](https://www.jetbrains.com/help/idea/install-and-set-up-product.html)
+* [Eclipse Download Instructions](https://www.ics.uci.edu/~pattis/common/handouts/pythoneclipsejava/eclipsejava.html)
+* [NetBeans Download Instructions](https://netbeans.org/community/releases/82/install.html)
+* [Visual Studio Download Instructions](https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2017)
+
+### Downloading and Running MazeProjectJava
+
+Follow the steps below to download and run MazeProjectJava (Download JDK & IDE first). 
+
+* Click [this link](https://github.com/Finsternavy/MazeProjectJava) to navigate to the MazeProjectJava folder.
+* Click "Clone or Download" (Green Button toward top of page) and select "Download Zip".
+* Locate the zip file in File Explorer and open it. 
+* At the top of File Explore, click "Extract All".
+* Open your preferred IDE.
+* Select File > Open then select the extracted file.
+* Click the run/build/run & build button (This will vary by IDE).
+
+This will display each instance of the maze as it is solved without spacing in the console. It will also overwrite the output file.
+
+## Testing suggestion
+
+If you would like to experiment further you can do so by opening the input file and changing the indexes. The input file is in the following format:
+
+* Line 1: Dimensions of the maze. First integer is rows, second is columns
+* Line 2: Starting position of the maze. Same format as above.
+* Line 3: Finish or Goal position of the maze. Same format.
+* Each remaining line are indexes where walls will be placed.
+
+This format can be modified. The input file is read by finding the next integer in the file. Each step will locate two integers (Rows, Columns). 
+
+After making changes to the input file, return to the program and click run/build/run & build, depending on your IDE. 
+
+The results should overwrite the output file. Open the output file to view your results.
 
 ## Authors
 
