@@ -45,6 +45,7 @@ Follow the steps below to download and run MazeProjectJava (Download JDK & IDE f
 * At the top of File Explore, click "Extract All".
 * Open your preferred IDE.
 * Select File > Open then select the extracted file.
+* Update line 15 of main.java to match the file path where your input file is saved.
 * Click the run/build/run & build button (This will vary by IDE).
 
 This will display each instance of the maze as it is solved without spacing in the console. It will also overwrite the output file.
