@@ -57,7 +57,7 @@ If you would like to experiment further you can do so by opening the input file 
 * Line 1: Dimensions of the maze. First integer is rows, second is columns
 * Line 2: Starting position of the maze. Same format as above.
 * Line 3: Finish or Goal position of the maze. Same format.
-* Each remaining line are indexes where walls will be placed.
+* Each remaining line are indexes where walls will be placed. (*Be careful when changing indexes! Index should be 1 less than the specified dimensions. If dimensions are 10, 10; putting a wall index of 10,10 will result in an out of bounds exception and the program will not compile. Remember indexes start at 0.)*
 
 This format can be modified. The input file is read by finding the next integer in the file. Each step will locate two integers (Rows, Columns). 
 
