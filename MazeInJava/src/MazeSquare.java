@@ -12,84 +12,21 @@ public class MazeSquare {
         this.top = "...";
         this.mid = "...";
         this.bot = "...";
+        this.seen = false;
         squareArray = new String[]{top, mid, bot};;
 
     }
 
     MazeSquare (squareType c){
 
-        switch (c){
-
-            case OPEN:
-
-                this.top = "...";
-                this.mid = "...";
-                this.bot = "...";
-                squareArray = new String[]{top, mid, bot};
-                break;
-
-            case WALL:
-
-                this.top = "XXX";
-                this.mid = "XXX";
-                this.bot = "XXX";
-                squareArray = new String[]{top, mid, bot};
-                break;
-
-            case START:
-
-                this.top = "...";
-                this.mid = ".S.";
-                this.bot = "...";
-                squareArray = new String[]{top, mid, bot};
-                break;
-
-            case FINISH:
-
-                this.top = "...";
-                this.mid = ".F.";
-                this.bot = "...";
-                squareArray = new String[]{top, mid, bot};
-                break;
-
-            case BACKTRACK:
-
-                this.top = "BBB";
-                this.mid = "BBB";
-                this.bot = "BBB";
-                squareArray = new String[]{top, mid, bot};
-                break;
-
-            case PATH:
-
-                this.top = "   ";
-                this.mid = "   ";
-                this.bot = "   ";
-                squareArray = new String[]{top, mid, bot};
-                break;
-
-            case CURRENT:
-
-                this.top = "---";
-                this.mid = "-0-";
-                this.bot = "---";
-                squareArray = new String[]{top, mid, bot};
-                break;
-
-            default:
-
-                this.top = "...";
-                this.mid = "...";
-                this.bot = "...";
-                squareArray = new String[]{top, mid, bot};
-
-        }
+        setSquareType(c);
 
     }
 
     public String top;
     public String mid;
     public String bot;
+    public boolean seen = false;
 
     public String[] squareArray;
 
@@ -148,6 +85,7 @@ public class MazeSquare {
                 this.top = "...";
                 this.mid = "...";
                 this.bot = "...";
+                this.seen = false;
                 squareArray = new String[]{top, mid, bot};
                 break;
 
@@ -156,6 +94,7 @@ public class MazeSquare {
                 this.top = "XXX";
                 this.mid = "XXX";
                 this.bot = "XXX";
+                this.seen = false;
                 squareArray = new String[]{top, mid, bot};
                 break;
 
@@ -164,6 +103,7 @@ public class MazeSquare {
                 this.top = "...";
                 this.mid = ".S.";
                 this.bot = "...";
+                this.seen = false;
                 squareArray = new String[]{top, mid, bot};
                 break;
 
@@ -172,6 +112,7 @@ public class MazeSquare {
                 this.top = "...";
                 this.mid = ".F.";
                 this.bot = "...";
+                this.seen = false;
                 squareArray = new String[]{top, mid, bot};
                 break;
 
@@ -180,6 +121,7 @@ public class MazeSquare {
                 this.top = "BBB";
                 this.mid = "BBB";
                 this.bot = "BBB";
+                this.seen = false;
                 squareArray = new String[]{top, mid, bot};
                 break;
 
@@ -188,6 +130,7 @@ public class MazeSquare {
                 this.top = "   ";
                 this.mid = "   ";
                 this.bot = "   ";
+                this.seen = false;
                 squareArray = new String[]{top, mid, bot};
                 break;
 
@@ -196,6 +139,7 @@ public class MazeSquare {
                 this.top = "---";
                 this.mid = "-0-";
                 this.bot = "---";
+                this.seen = false;
                 squareArray = new String[]{top, mid, bot};
                 break;
 
@@ -204,6 +148,7 @@ public class MazeSquare {
                 this.top = "...";
                 this.mid = "...";
                 this.bot = "...";
+                this.seen = false;
                 squareArray = new String[]{top, mid, bot};
 
         }
