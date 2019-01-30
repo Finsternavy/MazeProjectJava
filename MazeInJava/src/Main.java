@@ -60,7 +60,8 @@ public class Main {
 
         //Creates MazeSolver object, passing in the maze to be solved.
       //  MazeSolver solveMaze = new MazeSolver(myMaze);
-        MazeSolverQueue solveMazeQueue = new MazeSolverQueue(myMaze);
+       // MazeSolverQueue solveMazeQueue = new MazeSolverQueue(myMaze);
+        MazeSolverHeap solveMazeHeap = new MazeSolverHeap(myMaze);
 
         //Create empty BufferWriter for outputting maze to text file.
         BufferedWriter output = null;
@@ -89,7 +90,7 @@ public class Main {
 
         } */
 
-        try {
+        /*try {
 
             //Associate file object to new text document that will containg the program output.
             File file = new File("MazeQueueOutput");
@@ -97,6 +98,30 @@ public class Main {
             output = new BufferedWriter(new FileWriter(file));
             //Pass in stringbuilder from MazeSolver to allow proper formatting when iterating through each step
             output.write(solveMazeQueue.sb.toString());
+
+
+        } catch (IOException e){
+
+            e.printStackTrace();
+
+        } finally {
+
+            if (output != null){
+
+                output.close();
+
+            }
+
+        } */
+
+        try {
+
+            //Associate file object to new text document that will containg the program output.
+            File file = new File("MazeHeapOutput");
+            //Connects bufferedwriter to new FileWriter passing in the file to be written to.
+            output = new BufferedWriter(new FileWriter(file));
+            //Pass in stringbuilder from MazeSolver to allow proper formatting when iterating through each step
+            output.write(solveMazeHeap.sb.toString());
 
 
         } catch (IOException e){

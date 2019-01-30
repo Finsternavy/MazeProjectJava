@@ -13,7 +13,7 @@ public class MazeSquare {
         this.mid = "...";
         this.bot = "...";
         this.seen = false;
-        squareArray = new String[]{top, mid, bot};;
+        squareArray = new String[]{top, mid, bot};
 
     }
 
