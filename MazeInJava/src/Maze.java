@@ -34,6 +34,9 @@ public class Maze {
 
     public void generateMaze(int rows, int columns){
 
+        int mazeSquareCount = 0;
+        int size = rows * columns;
+
         //Iterate through the maze creating OPEN maze squares at each index (Default). Could also be done in single for loop but helps me maintain consistent thought process
         for(int row = 0; row < rows; row++){
 
@@ -41,14 +44,33 @@ public class Maze {
 
                 //Create OPEN type mazeSquare object
                 MazeSquare newMazeSquare = new MazeSquare(MazeSquare.squareType.OPEN);
+
+                newMazeSquare.index = mazeSquareCount;
+
+
+                if(mazeSquareCount - columns >= 0)
+                    newMazeSquare.nextAbove = mazeSquareCount - columns;
+
+                if(mazeSquareCount + columns < size)
+                    newMazeSquare.nextBelow = mazeSquareCount + columns;
+
+                if(mazeSquareCount + 1 < size && mazeSquareCount % (columns - 1) != 0 || mazeSquareCount == 0)
+                    newMazeSquare.nextRight = mazeSquareCount + 1;
+
+                if(mazeSquareCount - 1 >= 0 && mazeSquareCount % columns != 0)
+                    newMazeSquare.nextLeft = mazeSquareCount - 1;
+
                 //Place new object in maze ArrayList
                 maze.add(newMazeSquare);
+
+                mazeSquareCount++;
 
             }
 
         }
 
     }
+
 
     public String printMaze(){
 

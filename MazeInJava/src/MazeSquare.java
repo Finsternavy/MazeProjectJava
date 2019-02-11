@@ -26,6 +26,11 @@ public class MazeSquare {
     public String top;
     public String mid;
     public String bot;
+    public int nextRight = -1;
+    public int nextLeft = -1;
+    public int nextBelow = -1;
+    public int nextAbove = -1;
+    public int index = 0;
     public boolean seen = false;
 
     public String[] squareArray;
