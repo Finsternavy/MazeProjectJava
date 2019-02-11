@@ -62,7 +62,7 @@ public class Main {
       //  MazeSolver solveMaze = new MazeSolver(myMaze);
        // MazeSolverQueue solveMazeQueue = new MazeSolverQueue(myMaze);
        // MazeSolverHeap solveMazeHeap = new MazeSolverHeap(myMaze);
-        MazeSolverDFS solveMazeDFS = new MazeSolverDFS(myMaze);
+        MazeSolverBFS solveMazeBFS = new MazeSolverBFS(myMaze);
 
         //System.out.println(myMaze.maze.get(10).index + "\n"  + myMaze.maze.get(10).nextRight + "\n" + myMaze.maze.get(10).nextBelow + "\n" + myMaze.maze.get(10).nextAbove + "\n" + myMaze.maze.get(10).nextLeft);
 
@@ -144,11 +144,11 @@ public class Main {
         try {
 
             //Associate file object to new text document that will containg the program output.
-            File file = new File("MazeDFSOutput");
+            File file = new File("MazeBFSOutput");
             //Connects bufferedwriter to new FileWriter passing in the file to be written to.
             output = new BufferedWriter(new FileWriter(file));
             //Pass in stringbuilder from MazeSolver to allow proper formatting when iterating through each step
-            output.write(solveMazeDFS.sb.toString());
+            output.write(solveMazeBFS.sb.toString());
 
 
         } catch (IOException e){
